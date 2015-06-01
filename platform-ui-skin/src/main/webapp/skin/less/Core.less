@@ -549,9 +549,6 @@ hr {
       &:hover,&.open,&.active {
         background-color: @primaryBackgroundLight
       }
-      > * {
-        padding: 6px 20px 6px 20px;
-      }
     }
     .accordion-body {
       > * {
@@ -576,6 +573,108 @@ hr {
       color: @btnPrimaryColor;
     }
 }
+
+.uiAccordion.leftPanel {
+	.accordion-heading {
+		border-bottom: none;
+		background-color: @primaryBackgroundLight;
+		box-shadow: none;
+		&:first-child {
+			border-radius: @baseBorderRadius @baseBorderRadius 0 0;
+		}
+		&:last-child {
+			border-radius: 0 0 @baseBorderRadius @baseBorderRadius;
+			border-bottom: none;
+		}
+		&:hover {
+			background-color: @primaryBackground;
+		}
+		&.open, &.active {
+			background-color: @primaryBackgroundHover;
+		}
+		a.project-name {
+			padding: 6px 20px;
+			display: block;
+			font-weight: bold;
+			color: @textColor;
+			outline-style: none;
+		}
+		.item {
+			border-bottom: 1px solid @borderColor;
+			a.dropdown-toggle {
+				margin: 7px 12px 0 0;
+			}
+		}
+		.list-projects {
+			background-color: @baseBackground;
+		}
+		.sub-item {
+			border-bottom: 1px solid @white;
+			margin-left: 1px;
+			position: relative;
+			&:hover {
+				background-color: @primaryBackgroundLight;
+				.iconGreater {
+					display: inline-block;
+					color: @white;
+				    background: @baseColorLight;
+				}
+				> a.dropdown-toggle {
+					display: block;
+				}
+			}
+			.project-name {
+				display: block;
+    			padding: 6px 20px;
+    			font-weight: normal;
+			}
+			> a {
+				color: @textColor;
+				outline-style: none;
+				&.dropdown-toggle {
+					display: none;
+					margin: 6px 12px 0 0;
+				}
+			}
+		}
+		.project-item {	
+			&.active, &.open {
+				> .sub-item {
+					#gradient > .vertical(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
+					.project-name {
+						color: @white;
+						[class^="uiIcon"] {
+							 background-image: url("@{images-path}/Icons/uiIconsSecondary.png");					
+						}
+					}
+					> a.dropdown-toggle {
+						display: block;
+						[class^="uiIcon"] {
+							background-image: url("@{images-path}/Icons/uiIconsSecondary.png");
+						}	
+					}
+				}
+			}
+			.colorPie {
+				width: 5px;
+				height: 32px;
+				display: inline-block;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		}
+		.item, .sub-item {
+			position: relative;
+			.project-menu {
+				left: calc(100% - 30px);
+    			top: 30px;
+			}
+		} 
+	}
+}
+
+
 
 //uiAutoComplete
 
